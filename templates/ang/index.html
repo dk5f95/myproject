@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" ng-app="cityaplapp">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+   
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link href="https://unpkg.com/ng-material-datetimepicker@1.9.4/dist/material-datetimepicker.min.css rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/ng-material-datetimepicker@v1.9.4/dist/material-datetimepicker.min.css" rel="stylesheet" type="text/css">  
+
+    
+   
+ <link rel="stylesheet" href="/static/css/addshop.css">
+
+
+</head>
+<body  ng-cloak>
+
+	<div ng-view></div>
+  
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-cookies.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-messages.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-resource.js"></script>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/ng-material-datetimepicker@v1.9.4/dist/angular-material-datetimepicker.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd1xMYT1bt99qtFWQEzXiRBvORDWHgPtk&libraries=places"></script>
+ 
+   
+
+      <!-- main reference link -->
+ <script src='{% static "/js/app/app.module.js" %}' ></script>
+ <script src='{% static "/js/app/app.config.js" %}' ></script>
+
+      <!--  Services reference link starts -->
+
+     <!--  1-Add shop service reference -->
+  
+<script src='{% static "/js/app/resources/add-shop/add-shop.module.js" %}' ></script>
+<script src='{% static "/js/app/resources/add-shop/addshop.service.js" %}' ></script>
+
+      <!--  2-Category service reference -->
+<script src='{% static "/js/app/resources/category/category.module.js" %}' ></script>
+<script src='{% static "/js/app/resources/category/category.service.js" %}' ></script>
+
+       <!-- 3-City service reference -->
+<script src='{% static "/js/app/resources/city/city.module.js" %}' ></script>
+<script src='{% static "/js/app/resources/city/city.service.js" %}' ></script>
+
+
+       <!-- 4-Subcategory reference service -->
+<script src='{% static "/js/app/resources/subcategory/subcategory.module.js" %}' ></script>
+<script src='{% static "/js/app/resources/subcategory/subcategory.service.js" %}' ></script>
+
+       <!-- Component reference starts here -->
+<script src='{% static "/js/app/resources/locationpicker/locationpicker.module.js" %}' ></script>
+<script src='{% static "/js/app/resources/locationpicker/locationpicker.service.js" %}' ></script>
+
+       <!--  4-addshop component reference -->
+ <script src='{% static "/js/app/addshop/addshop.module.js" %}' ></script>
+ <script src='{% static "/js/app/addshop/addshop.Component.js" %}' ></script>
+  
+
+
+
+</body>
+</html>

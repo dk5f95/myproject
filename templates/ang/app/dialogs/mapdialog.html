@@ -1,0 +1,76 @@
+
+ 
+
+
+    
+   
+   
+    
+
+    
+  </div>
+  
+
+  <div ng-if="status" id="status">
+    <b layout="row" layout-align="center center" class="md-padding">
+      {{status}}
+    </b>
+  </div>
+
+  
+
+
+
+
+  
+   
+
+
+<script type="text/ng-template" id="tabDialog.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Pick Location</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Read">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Be Careful..!!</h1>
+          <p>if you are at the Business location select Get my current location</p>
+  <p>if you are not at the Business location first search  your location then select the exact location Carefully in the mapGet </p>
+ <md-button class="md-primary md-raised" >
+    Proceed
+    </md-button> 
+          </md-content>
+        </md-tab>
+        <md-tab label="Map">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">map div</h1>
+            
+            
+            
+          </md-content>
+        </md-tab>
+       
+      </md-tabs>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      
+      <span flex></span>
+      <md-button ng-click="answer('not selected any')" >
+      Location Not Picked
+      </md-button>
+      <md-button ng-click="answer('successfully selected the')" style="margin-right:20px;" >
+       Successfully selected the
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+</script></div>

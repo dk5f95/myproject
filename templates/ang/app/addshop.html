@@ -1,0 +1,295 @@
+
+<div class="container">
+<!-- <div class="bg">
+</div> -->
+ <div class="content" layout="column" layout-align="center center">
+ <!--    <span style="font-family:inherit; font-size:45px;  padding:25px;">List Your Business With CityAPL</span>  -->   
+    <!-- <a ng-click="scrollTo()" class="cta">Get Start</a> -->
+  </div>
+</div>
+
+
+
+  <!--add business Form start-->
+
+ <div layout=column  id="foo">
+  <div style="font-size:31px ; text-align:center;color:#333c ; margin-top:50px; margin-bottom:15px; font-weight:500">List Your Business </div>
+  <div layout="row"   layout-xs="column" flex style="margin-top:50px">
+      <div flex="5" hide-xs></div>
+    <div layout="column" flex style="padding-left: 20px;padding-right: 20px">
+      <form name="addshopForm">
+             
+     <md-input-container  class="md-block" flex-gt-sm  md-icon-float >
+        <label>Business Name</label>
+          <md-icon md-svg-src="media/img/shop.svg
+" class="mdicon"></md-icon>
+                <input type="text" name="shopName" required  ng-model="data.shopName" minlength="3" placeholder="Example-Naresh General Store">
+               <div ng-messages="addshopForm.businessname.$error">
+                     <div ng-message="required">Business name is required</div>
+           </div>
+       </md-input-container>
+        
+      
+      
+ <md-input-container class="md-block"  flex-gt-sm style="margin-top:20px;margin-bottom:50px">
+        <label>Select City</label>
+        <md-select ng-model="data.city"  >
+          <md-optgroup label="City">
+            <md-option ng-value="item.id"  ng-repeat="item in cityList | orderBy : 'name'"> {{item.city}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </md-input-container>
+            
+
+       <md-input-container class="md-block" flex-gt-sm>
+                    <label>Tagline</label>
+                      <md-icon md-svg-src="/media/img/tagline.svg" class="mdicon"></md-icon>
+                    <input type="text" name="tagline" ng-model="data.tagline">
+        </md-input-container > 
+
+
+      
+
+ <md-input-container class="md-block" flex-gt-sm style="margin-top:20px;margin-bottom:50px">
+        <label>Select Business Category</label>
+        <md-select ng-model="data.category"  md-selected-text="getSelectedText()">
+          <md-optgroup label="Category">
+            <md-option ng-value="item.id"  ng-repeat="item in categoryList | orderBy : 'name'" > {{item.name}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm style="margin-top:20px;margin-bottom:50px">
+        <label>Select Business SubCategory</label>
+      
+        <md-select ng-model="data.subCategory" multiple >
+         
+          <md-optgroup label="SubCategory">
+
+            <md-option ng-value="item.id" name="subcategory" ng-repeat="item in subcategoryList | filter: {category:{id:data.category}}"> {{item.name}}</md-option> 
+          </md-optgroup>
+        
+        </md-select>
+
+      </md-input-container>
+
+
+        <md-input-container class="md-block" flex-gt-sm>
+         <label>Owner Name</label>
+          <md-icon md-svg-src="/cityaplfreelisting/media/owner.svg" class="mdicon"></md-icon>
+                <input type="text" name="ownerName" required  ng-model="data.ownerName">
+               <div ng-messages="addshopForm.ownername.$error">
+               <div ng-message="required">Owner name is required</div>
+           </div>
+         </md-input-container> 
+         <md-input-container class="md-block md-icon-float" flex-gt-sm>
+         <label>Business Address</label>
+          <md-icon md-svg-src="/cityaplfreelisting/media/shop address.svg" class="mdicon"></md-icon>
+                <input type="text" name="shopAddress" required  ng-model="data.shopAddress">
+               <div ng-messages="addshopForm.BusinessAdd.$error">
+               <div ng-message="required">Pls enter your business address</div>
+           </div>
+        </md-input-container>               
+
+  </form>
+    </div>
+    <div layout="column" flex style="padding-left: 20px;padding-right: 20px">
+      <form name="addshopForm">
+             
+     <md-input-container class=" md-block">
+              <label>Contact Number </label>
+              <md-icon md-svg-src="/media_cdn/shop.svg"  aria-hidden="false"></md-icon>
+            <input required pattern="[789][0-9]{9}" ng-model="data.mobileNo" name="mobileNo" type="text">
+            <div ng-messages="addshopForm.contactNum.$error">
+                <div ng-message="required"> Contact num is required</div>
+                <div ng-message="pattern">Invalid Mobile number</div>
+            </div>
+      </md-input-container>
+      <!-- <md-input-container class="md-block">
+              <label>Alternate contact No</label>
+              <md-icon md-svg-src="/cityaplfreelisting/media/phone number.svg" class="mdicon"></md-icon>
+            <input pattern="[789][0-9]{9}" ng-model="alternateMobileNo" name="AltcontactNum" type="text">
+            <div ng-messages="addshopForm.AltcontactNum.$error">
+                <div ng-message="pattern">Invalid Mobile number</div>
+            </div>
+       </md-input-container> -->
+          <md-input-container class="md-block">
+              <label>Email</label>
+               <md-icon md-svg-src="/cityaplfreelisting/media/email.svg" class="mdicon"></md-icon>
+            <input required ng-model="data.email" name="email" type="email">
+            <div ng-messages="addshopForm.email.$error">
+                <div ng-message="required">pls enter a Eamil</div>
+            </div>
+      </md-input-container>
+
+      <md-input-container flex-gt-sm class="md-block">
+        <label>Opening Time</label>
+        <md-icon md-svg-src="../shop.svg" class="mdicon"></md-icon>
+       <input type=text placeholder="hh:mm:ss" ng-model="data.openingTime" name="openingTime">
+     </md-input-container>                    
+    <md-input-container flex-gt-sm class="md-block">
+        <label>Closing Time</label>
+      <input type=text placeholder="hh:mm:ss" ng-model="data.closingTime" name="closingTime">
+     </md-input-container>
+ 
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+      <label style="color: #c4c4c3">  Closing Days </label> 
+
+      <div layout=row>
+       
+         <div flex style="font-size:16px; color: #c4c4c3; text-align: center; margin-top:30px;">  Not Any Day <input type="checkbox" ng-model="all" ng-click="data.closingDay=DAYS[7][0]" ></input></div>
+
+        <div flex> <md-input-container flex-gt-sm class="md-block" >
+           <label>Days</label> 
+               <md-icon md-svg-src="/cityaplfreelisting/media/closing.svg" class="mdicon"></md-icon>
+                 
+        <md-select ng-model="data.closingDay"
+                   md-on-close="clearSearchTerm()"
+                   data-md-container-class="selectdemoSelectHeader"
+                   multiple ng-disabled="all" >        
+          <md-optgroup label="days">
+            <md-option ng-value="day"  ng-repeat="day in days"
+              >{{day}}</md-option>
+              
+          </md-optgroup>
+          
+        </md-select>
+     
+         <div ng-messages="addshopForm.closedays.$error">
+                <div ng-message="required">Required</div>
+        </div>
+       </md-input-container></div>
+        
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
+          <md-input-container class="md-block" flex-gt-sm>
+                    <label>Pin Code</label>
+                     <md-icon md-svg-src="/cityaplfreelisting/media/pin.svg" class="mdicon"></md-icon>
+                    <input name="shopPinCode" ng-model="data.shopPinCode"
+                           required ng-pattern="/^[0-9]{6}$/" md-maxlength="6">
+                    <div ng-messages="addshopForm.postalCode.$error">
+                        <div ng-message="required" >pls enter a pin code</div>
+                        <div ng-message="pattern">This is not a valid pin code. it must be of 6 digits Example-229001
+                        </div> 
+                    </div>            
+          </md-input-container>
+          
+                <label>Business Location</label>
+      
+
+
+    
+
+
+      </form>
+    </div>
+
+    <div flex="5" hide-xs></div>
+      
+  </div>
+
+
+  <div layout="column" layout-align="center" style="margin-top: 25px">
+  	 
+     <div layout="row" layout-align="center">
+         <md-button type="submit" ng-click="goaddshop(data)" ng-disabled="addshopForm.$invalid || loading || !terms" name="submit" class="md-raised md-primary" style="width:200px; margin-bottom:1;"  >
+           SUBMIT
+         </md-button>
+      </div>
+      <div class="md-caption" layout="row" layout-align="center center" style="padding:15px;margin-top:15px">
+          <md-checkbox   value="unchecked" name="checkbox" ng-model="terms">
+          By starting, you must agree to <a href="#">CityAPL's Terms of Services and Privacy Policy </a>
+         </md-checkbox>
+    </div>
+
+ 
+
+  </div>
+ 
+ </div>
+
+<!--add business form End-->
+
+<div layout="row" style="padding-top:40px"> 
+  <div flex="5" hide-sm hide-xs></div>
+    <div layout=column style="padding-top:15px;padding-bottom:15px">
+      <div layout="row" layout-xs="column" >                         
+        <div layout="column" layout-fill style="padding:20px">
+          <md-icon md-svg-icon="shop.svg"></md-icon>       
+          <span class="headingone">Boost Your Business with CityAPL</span>
+          <span class="headingtwo">
+            Promote your business with Listing on CityAPL. alongwith you will be able to contact direct with your potential Customer </span>        
+        </div>          
+          <div layout="column" layout-fill style="padding:20px">
+          <md-icon class="explain_svg" md-svg-src="/cityaplfreelisting/media/note.svg" aria-label="city"></md-icon>         
+          <span class="headingone">Maintains your reach to your Customers </span>
+          <span class="headingtwo">
+            Update all Your exclusive Products.alongwith their detail description pictures and prices </span>                  
+        </div>  
+        </div>
+        <div layout="row" layout-xs="column" >                         
+        <div layout="column" layout-fill style="padding:20px">
+          <md-icon class="explain_svg" md-svg-src="/cityaplfreelisting/media/note.svg" aria-label="city"></md-icon>         
+          <span class="headingone">Create deal to fill the gap </span>
+          <span class="headingtwo">
+          create a deal for your most appopriate choice.to create a reach for the your potential Customers </span>        
+        </div>          
+          <div layout="column" layout-fill style="padding:20px">
+          <md-icon class="explain_svg" md-svg-src="/cityaplfreelisting/media/note.svg" aria-label="city"></md-icon>         
+          <span class="headingone">Become Primium user</span>
+          <span class="headingtwo">
+           You will get alerts if you Subscribe CityAPL's deal alert</span>        
+        </div>  
+        </div>        
+        </div>
+    <div flex="10" hide-sm hide-xs></div>
+</div>
+
+
+<!--add business form End-->
+  
